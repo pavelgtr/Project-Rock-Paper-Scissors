@@ -11,13 +11,13 @@ function playRound(playerSelection, computerSelection) {
         return playRound(playerSelection, getComputerChoice()); // Replay the round in case of a tie
     }
 
-    const winningCombinations = {
+    const winningCombinations = { //this is an object. In JavaScript, objects are collections of key-value pairs. You can access the values by referencing their keys, like winningCombinations['rock'] would return 'scissors'.
         'rock': 'scissors',
         'paper': 'rock',
         'scissors': 'paper'
     };
 
-    if (winningCombinations[playerSelection] === computerSelection) {
+    if (winningCombinations[playerSelection] === computerSelection) { //This line checks whether the player's selection beats the computer's selection according to the rules defined in the winningCombinations object.
         return `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}`;
     } else {
         return `You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection}`;
@@ -54,4 +54,4 @@ function game() {
 }
 
 // Uncomment below line to play the game.
-// game();
+game();
