@@ -1,57 +1,19 @@
 function getComputerChoice() {
-    const choices = ['rock', 'paper', 'scissors'];
-    const randomIndex = Math.floor(Math.random() * choices.length);
-    return choices[randomIndex];
+    const choices = ['Rock', 'Paper', 'Scissors'];
+    const getRandomChoice = Math.floor(Math.random() * choices.length);
+    const computerChoice = choices[getRandomChoice];
+    alert(computerChoice)
+    return computerChoice;
 }
 
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
+// const pressButton = document.querySelector('#press');
 
-    if (playerSelection === computerSelection) {
-        return playRound(playerSelection, getComputerChoice()); // Replay the round in case of a tie
-    }
+// // btn.addEventListener('click',(event) => {
+// //     console.log('clicked');
+// // });
 
-    const winningCombinations = { //this is an object. In JavaScript, objects are collections of key-value pairs. You can access the values by referencing their keys, like winningCombinations['rock'] would return 'scissors'.
-        'rock': 'scissors',
-        'paper': 'rock',
-        'scissors': 'paper'
-    };
+// pressButton.addEventListener('click', clicked);
 
-    if (winningCombinations[playerSelection] === computerSelection) { //This line checks whether the player's selection beats the computer's selection according to the rules defined in the winningCombinations object.
-        return `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}`;
-    } else {
-        return `You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection}`;
-    }
-}
-
-function game() {
-    let playerWins = 0;
-    let computerWins = 0;
-
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Choose Rock, Paper, or Scissors");
-        const computerSelection = getComputerChoice();
-        const result = playRound(playerSelection, computerSelection);
-
-        console.log(result);
-
-        if (result.startsWith("You Win")) {
-            playerWins++;
-        } else if (result.startsWith("You Lose")) {
-            computerWins++;
-        }
-
-        console.log(`Score: Player ${playerWins} - Computer ${computerWins}`);
-    }
-
-    if (playerWins > computerWins) {
-        console.log("You won the game!");
-    } else if (playerWins < computerWins) {
-        console.log("You lost the game!");
-    } else {
-        console.log("The game is a tie!");
-    }
-}
-
-// Uncomment below line to play the game.
-game();
+// function clicked() {
+//     getComputerChoice();
+// };
