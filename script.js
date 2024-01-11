@@ -29,10 +29,8 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection == "rock" && computerSelection == "scissors") ||
     (playerSelection == "scissors" && computerSelection == "paper")
   ) {
-    console.log(`You Win!`);
     return "You Win";
   } else {
-    console.log(`You Lose`);
     return "You Lose";
   }
 }
@@ -41,26 +39,37 @@ let userScore = 0;
 let computerScore = 0;
 
 function game() {
- let userInput = prompt("Enter your choice (rock, paper, or scissors):");
+  let userInput = prompt("paper, rock, or scissors:");
   let result = playRound(userInput);
 
-  if (userScore == 3 || computerScore == 3) {
-    console.log('game over');
-    return 
-  }
-  if (result == "You Win") {
-    userScore = userScore + 1;
-    alert("You Win")
+  if (result === "Invalid choice") {
+    alert("invalid input");
+    return;
+  } else if (result === "You Win") {
+    userScore += 1;
+    if (userScore === 3) {
+      alert("You Win the Game!");
+      return;
+    } else {
+      alert(
+        `You won this round \nyou: ${userScore} \ncomputer: ${computerScore} \nlet's play again!`
+      );
+    }
+  } else if (result === "You Lose") {
+    computerScore += 1;
+    if (computerScore === 3) {
+      alert("You've lost the game!");
+      return;
+    } else {
+      alert(
+        `You lost this round \nyou: ${userScore} \ncomputer: ${computerScore} \nlet's play again!`
+      );
+    }
   } else {
-    computerScore = computerScore + 1; 
-    alert("Lose")
+    alert("It's a tie! Let's try again!");
   }
-  alert(`userScore: ${userScore}, computerScore: ${computerScore} `);
 }
 
-game()
-game("rock");
-game('rock');
-game('rock');
-game('rock');
-
+while (userScore + computerScore < 5) {
+  game();
+}

@@ -1,0 +1,26 @@
+function game() { //original function game function
+
+  let userInput = prompt("Enter your choice (rock, paper, or scissors):");
+  let result = playRound(userInput);
+  
+   if (result == "You Win" && userScore == 2 ) {
+    //to-do** add logic here for stopping once userScore is 3, same for comp below
+    userScore = userScore + 1;
+    alert("You Win the game");
+    return
+  } else if (result == "You Win" && userScore < 2) {
+    userScore = userScore + 1;
+    alert("you win this round, let's play again");
+  }
+  else if (result == "You Lose" && computerScore == 2) {
+    computerScore = computerScore + 1;
+    alert("You lost the game");
+    return
+  } else if (result == "You Lose" && computerScore < 2) {
+    computerScore = computerScore + 1;
+    alert("computer wins this round, let's play again");
+  } else {
+    alert("Tie!")
+  }
+  alert(`userScore: ${userScore}, computerScore: ${computerScore} `);
+}
