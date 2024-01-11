@@ -1,3 +1,4 @@
+// computer selection
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
   const getRandomChoice = Math.floor(Math.random() * choices.length);
@@ -5,35 +6,61 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-// Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
-// Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation).
-// Account for TIES by re-playing the round.
+//enter user selection & play game & return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
 
 function playRound(playerSelection, computerSelection) {
+  // Convert to string and handle invalid inputs
   playerSelection = String(playerSelection).toLowerCase();
   const choices = ["rock", "paper", "scissors"];
   computerSelection = getComputerChoice();
 
   if (!choices.includes(playerSelection)) {
-    console.error("Please select rock, paper, or scissors.");
     return "Invalid choice";
   }
 
+  // check for ties
   if (playerSelection == computerSelection) {
-    console.log("It's a tie! Let's play again.");
     playRound(playerSelection);
+    return "It's a tie! Let's play again.";
+  }
+
+  if (
+    (playerSelection == "paper" && computerSelection == "rock") ||
+    (playerSelection == "rock" && computerSelection == "scissors") ||
+    (playerSelection == "scissors" && computerSelection == "paper")
+  ) {
+    console.log(`You Win!`);
+    return "You Win";
   } else {
-    console.log(
-      `Player selection: ${playerSelection} \n Computer selection: ${computerSelection}`
-    );
-    return `Player selection: ${playerSelection} \n Computer selection: ${computerSelection}`;
+    console.log(`You Lose`);
+    return "You Lose";
   }
 }
 
+let userScore = 0;
+let computerScore = 0;
 
+function game() {
+ let userInput = prompt("Enter your choice (rock, paper, or scissors):");
+  let result = playRound(userInput);
 
+  if (userScore == 3 || computerScore == 3) {
+    console.log('game over');
+    return 
+  }
+  if (result == "You Win") {
+    userScore = userScore + 1;
+    alert("You Win")
+  } else {
+    computerScore = computerScore + 1; 
+    alert("Lose")
+  }
+  alert(`userScore: ${userScore}, computerScore: ${computerScore} `);
+}
 
-//   if (typeof playerSelection != "string") {
-//     console.log(Error("please enter string value"));
-//     return Error();
-//   }
+game()
+game("rock");
+game('rock');
+game('rock');
+game('rock');
+
