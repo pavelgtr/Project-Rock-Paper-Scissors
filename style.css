@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 20px;
+  background-color: rgb(251, 201, 160);
+}
+h1 {
+  padding-left: 15%;
+  text-align: center;
+  font-size: 60px;
+  color: rgba(9, 132, 227, 1);
+}
+
+.game-container {
+  display: block;
+  align-items: center;
+  /* for testing  */
+  /* border: 2px solid red;  */
+}
+
+.buttons {
+  /* for testing  */
+  /* border: 2px solid red;  */
+  display: flex;
+  /* width: 75%; */
+  justify-content: space-around;
+  /* align-items: center; */
+  padding-top: 10%;
+  padding-left: 200px;
+}
+
+.play:hover {
+  color: rgb(227, 27, 9);
+  
+}
+
+.play {
+  width: 200px;
+  color: rgba(9, 132, 227, 1);
+  font-size: 23px;
+  line-height: 23px;
+  padding: 16px;
+  border-radius: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: lowercase;
+  background-image: linear-gradient(
+    to right,
+    rgba(253, 203, 110, 1) 0%,
+    rgba(255, 234, 167, 1) 100%,
+    rgba(225, 112, 85, 1) 100%
+  );
+  box-shadow: rgb(0, 0, 0) 2px 2px 10px 2px;
+  /* border: 2px solid rgb(28, 110, 164); */
+  display: inline-block;
+}
+
+.result-box {
+  /* border: 2px solid rgb(110, 234, 253); */
+  text-align: center;
+  padding: 100px;
+  font-size: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

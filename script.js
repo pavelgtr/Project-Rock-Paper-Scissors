@@ -1,3 +1,27 @@
+let userScore = 0;
+let computerScore = 0;
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const scissorsButton = document.querySelector('#scissors');
+const resultBox = document.querySelector('.result-box'); 
+
+
+
+rockButton.addEventListener('click', () => {
+  
+  playRound('rock');
+});
+
+paperButton.addEventListener('click', () => {
+
+  playRound('paper');
+});
+
+scissorsButton.addEventListener('click', () => {
+  
+  playRound('scissors');
+});
+
 // computer selection
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
@@ -6,11 +30,12 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-//enter user selection & play game & return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
+//plays round
 
 function playRound(playerSelection, computerSelection) {
   // Convert to string and handle invalid inputs
   playerSelection = String(playerSelection).toLowerCase();
+  
   const choices = ["rock", "paper", "scissors"];
   computerSelection = getComputerChoice();
 
@@ -29,18 +54,20 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection == "rock" && computerSelection == "scissors") ||
     (playerSelection == "scissors" && computerSelection == "paper")
   ) {
+    resultBox.innerHTML = `Your choice: ${playerSelection} <br>Computer choice: ${computerSelection} <br>You won this round!`
     return "You Win";
   } else {
+    resultBox.innerHTML = `Your choice: ${playerSelection} <br>Computer choice: ${computerSelection} <br>You lost this round!`
     return "You Lose";
   }
 }
 
-let userScore = 0;
-let computerScore = 0;
 
+
+//keeps score and declares winner 
 function game() {
   let userInput = prompt("paper, rock, or scissors:");
-  let result = playRound(userInput);
+  let result = playRound(userInput); //this will be a button function 
 
   if (result === "Invalid choice") {
     alert("invalid input");
@@ -70,6 +97,5 @@ function game() {
   }
 }
 
-while (userScore + computerScore < 5) {
-  game();
-}
+
+
